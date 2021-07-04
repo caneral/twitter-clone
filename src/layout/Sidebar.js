@@ -10,7 +10,42 @@ import {
     ProfileIcon,
     MoreIcon
 } from '../icons/Icon';
+import SideLink from '../components/SideLink';
 const Sidebar = () => {
+    const sideLinks = [
+        {
+          name: "Home",
+          icon: HomeIcon,
+        },
+        {
+          name: "Explore",
+          icon: ExploreIcon,
+        },
+        {
+          name: "Notifications",
+          icon: NotificationsIcon,
+        },
+        {
+          name: "Messages",
+          icon: MessagesIcon,
+        },
+        {
+          name: "Bookmarks",
+          icon: BookmarksIcon,
+        },
+        {
+          name: "Lists",
+          icon: ListsIcon,
+        },
+        {
+          name: "Profile",
+          icon: ProfileIcon,
+        },
+        {
+          name: "More",
+          icon: MoreIcon,
+        },
+      ];
     return (
         <div className="flex flex-col justify-between w-72 px-2">
             <div>
@@ -19,8 +54,9 @@ const Sidebar = () => {
                 </div>
                 <nav className="mb-4">
                     <ul>
-                        <li>Home</li>
-                        <li>Explore</li>
+                      {sideLinks.map(({name, icon}) => (
+                          <SideLink key={name} name={name} Icon={icon} />
+                      ))}
 
                     </ul>
                 </nav>
